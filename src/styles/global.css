@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl hover:border-teal-400/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-glow;
+  }
+}
