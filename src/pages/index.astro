@@ -1,88 +1,73 @@
 ---
-// src/pages/index.astro (Days 4-5 Master Grid)
+import { ClientOnly } from 'astro/components';
 ---
 
 <html lang="en">
 <head>
-  <!-- Same head as before -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Motorsports OS - Week 1 Complete</title>
 </head>
-<body class="bg-gradient-to-br from-graphite-950 via-ultramarine-900/20 to-graphite-950 min-h-screen">
-  
-  <!-- Header (same as Day 2) -->
-  
-  <main class="max-w-7xl mx-auto px-6 py-20">
-    <!-- HERO STATS ROW -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-      <div class="glass-card p-10">
-        <h1 class="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-teal-400 via-ultramarine-400 to-teal-500 bg-clip-text text-transparent mb-6 leading-tight">
-          Harshit Sharma<br>
-          <span class="text-3xl text-slate-300">F1 Data Engineer</span>
-        </h1>
-        <p class="text-xl text-slate-300 leading-relaxed max-w-lg">
-          ML-powered lap time optimization. RB19 downforce analysis. 
-          <span class="text-teal-400 font-semibold">Engineering at 300km/h.</span>
-        </p>
-      </div>
-      
-      <!-- Live Telemetry Gauges -->
-      <div class="glass-card p-8 grid grid-cols-2 gap-6">
-        <div class="text-center">
-          <div class="text-4xl font-mono text-teal-400 animate-pulse-slow mb-2">12,437</div>
-          <div class="text-sm text-slate-400 tracking-wider uppercase">RPM</div>
-        </div>
-        <div class="text-center">
-          <div class="text-4xl font-mono text-red-400 mb-2">1:27.842</div>
-          <div class="text-sm text-slate-400 tracking-wider uppercase">Best Lap</div>
-        </div>
-        <div class="text-center col-span-2 border-t border-white/10 pt-4 mt-4">
-          <div class="text-2xl font-mono text-emerald-400">P1 • Silverstone '25</div>
-        </div>
-      </div>
-    </div>
 
-    <!-- THE BENTO MASTER GRID (11 Tiles) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-[repeat(11,minmax(0,320px))] gap-6 mb-20">
-      
-      <!-- LAP TIME OPTIMIZER (Featured - Double Width) -->
-      <div class="md:col-span-2 glass-card p-8 cursor-pointer group">
-        <div class="flex items-start gap-4 mb-4">
-          <div class="w-12 h-12 bg-gradient-to-r from-teal-500 to-ultramarine-600 rounded-2xl flex items-center justify-center shrink-0">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-              <!-- Speedometer icon -->
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold text-white group-hover:text-teal-400 transition-colors">RB19 Lap Optimizer</h3>
-            <p class="text-teal-400 text-sm font-medium">ML + CFD</p>
-          </div>
+<body class="bg-slate-900 text-white p-8 font-sans">
+  <header class="mb-12 p-6 bg-black/50 rounded-lg">
+    <div class="max-w-4xl mx-auto flex flex-col lg:flex-row gap-4 lg:gap-8 items-center lg:items-center">
+      <h1 class="text-4xl font-bold bg-gradient-to-r from-teal-400 to-blue-500 text-transparent bg-clip-text">
+        Motorsports OS
+      </h1>
+      <nav class="flex gap-6 text-slate-400">
+        <a href="/" class="hover:text-teal-400 font-medium">Home</a>
+        <a href="/projects" class="hover:text-teal-400 font-medium">Projects</a>
+        <a href="/about" class="hover:text-teal-400 font-medium">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto">
+    <section class="mb-20">
+      <h1 class="text-6xl font-black mb-8 bg-gradient-to-r from-teal-400 to-blue-400 text-transparent bg-clip-text">
+        Harshit Sharma
+      </h1>
+      <h2 class="text-3xl font-bold text-slate-200 mb-6">F1 Data Engineer</h2>
+      <p class="text-xl text-slate-400 mb-8 max-w-2xl">
+        Week 1 complete: Live F1 dashboard with Recharts telemetry.
+      </p>
+      <div class="bg-black/50 p-8 rounded-xl border border-gray-700 mb-20">
+        <h3 class="text-2xl font-bold mb-4 text-teal-400">Telemetry Loading...</h3>
+        <p class="text-slate-400">ClientOnly + Recharts component ready</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-4xl font-black mb-12 text-center text-white">Projects Grid</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-black/50 p-8 rounded-xl border border-gray-700 hover:border-teal-500 hover:bg-teal-500/5 transition-all">
+          <h3 class="font-bold text-xl mb-3">RB19 Optimizer</h3>
+          <p class="text-teal-400 mb-4">ML Lap Time Prediction</p>
+          <span class="text-sm text-slate-500">0.3s faster laps</span>
         </div>
-        <p class="text-slate-300 mb-6">XGBoost model shaved 0.3s off Silverstone sector 2. Deployed on Vercel Edge.</p>
-        <div class="flex items-center gap-2 text-sm text-slate-400">
-          <span>12k RPM Peak</span>
-          <span>•</span>
-          <span>+47 Downforce</span>
+        <div class="bg-black/50 p-8 rounded-xl border border-gray-700 hover:border-teal-500 hover:bg-teal-500/5 transition-all">
+          <h3 class="font-bold text-xl mb-3">Wheel of Life</h3>
+          <p class="text-teal-400 mb-4">Expertise Radar Chart</p>
+        </div>
+        <div class="bg-black/50 p-8 rounded-xl border border-gray-700 hover:border-teal-500 hover:bg-teal-500/5 transition-all">
+          <h3 class="font-bold text-xl mb-3">Live Telemetry</h3>
+          <p class="text-teal-400 mb-4">Real-time Data</p>
+        </div>
+        <div class="bg-black/50 p-8 rounded-xl border border-gray-700 hover:border-teal-500 hover:bg-teal-500/5 transition-all">
+          <h3 class="font-bold text-xl mb-3">F2004 Aero</h3>
+          <p class="text-teal-400 mb-4">3D Analysis</p>
+        </div>
+        <div class="bg-black/50 p-8 rounded-xl border border-gray-700 hover:border-teal-500 hover:bg-teal-500/5 transition-all">
+          <h3 class="font-bold text-xl mb-3">Pit Stop Opti</h3>
+          <p class="text-teal-400 mb-4">Genetic Algorithm</p>
+        </div>
+        <div class="bg-black/50 p-8 rounded-xl border border-gray-700 hover:border-teal-500 hover:bg-teal-500/5 transition-all">
+          <h3 class="font-bold text-xl mb-3">Downforce ML</h3>
+          <p class="text-teal-400 mb-4">Neural Network</p>
         </div>
       </div>
-
-      <!-- 9 More Tiles (Quick placeholders - we'll flesh out tomorrow) -->
-      {[
-        {title: "Wheel of Life", subtitle: "Expertise Radar", color: "emerald"},
-        {title: "F2004 Aero", subtitle: "3D Analysis", color: "amber"},
-        {title: "Telemetry Dashboard", subtitle: "Live Data", color: "violet"},
-        {title: "Downforce Predictor", subtitle: "Neural Net", color: "rose"},
-        {title: "Pit Stop Optimizer", subtitle: "Genetic Algo", color: "indigo"},
-        {title: "Track Surface ML", subtitle: "Grip Analysis", color: "cyan"},
-        {title: "Tire Wear Model", subtitle: "Physics + ML", color: "orange"},
-        {title: "Setup Optimizer", subtitle: "Multi-Objective", color: "lime"},
-        {title: "Driver Profiles", subtitle: "Wheel of Life", color: "pink"}
-      ].map((project, i) => (
-        <div key={i} class="glass-card p-6 hover:bg-white/20 transition-all">
-          <h4 class="font-semibold text-white mb-2">{project.title}</h4>
-          <p class="text-slate-400 text-sm">{project.subtitle}</p>
-        </div>
-      ))}
-    </div>
+    </section>
   </main>
 </body>
 </html>
