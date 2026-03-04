@@ -1,0 +1,91 @@
+---
+// src/pages/projects/[slug].astro
+import { getCollection } from 'astro:content';
+import ProjectLayout from '../../layouts/ProjectLayout.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { slug: project.data.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+---
+<ProjectLayout title={project.data.title}>
+  <article class="project-page" style={`--project-color: var(--${project.data.color})`}>
+    <!-- Hero Image -->
+    {project.data.hero && (
+      <img src={`/images/${project.data.hero}`} alt={project.data.title} class="hero" />
+    )}
+
+    <!-- Stats Box -->
+    <div class="stats-grid glass-card">
+      <div class="stat">
+        <span class="label">Gain</span>
+        <span class="value">{project.data.stats.gain}</span>
+      </div>
+      <div class="stat">
+        <span class="label">Dataset</span>
+        <span class="value">{project.data.stats.dataset}</span>
+      </div>
+      <div class="stat">
+        <span class="label">Tools</span>
+        <span class="value">{project.data.stats.tools.join(', ')}</span>
+      </div>
+    </div>
+
+    <!-- Radar Chart (React Component) -->
+    <div class="radar-chart-container">
+      <RadarChart data={project.data.radar} color={project.data.color} />
+    </div>
+
+    <!-- Markdown Content -->
+    <div class="markdown-content">
+      <Content />
+    </div>
+  </article>
+</ProjectLayout>
+
+<style>
+  .project-page {
+    --project-color: var(--eagle-ultramarine); /* fallback */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  .hero {
+    width: 100%;
+    border-radius: 28px;
+    margin-bottom: 2rem;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+  .stat {
+    text-align: center;
+  }
+  .label {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-bottom: 0.25rem;
+  }
+  .value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--project-color);
+  }
+  .radar-chart-container {
+    margin-bottom: 3rem;
+  }
+  .markdown-content {
+    line-height: 1.8;
+  }
+</style>
