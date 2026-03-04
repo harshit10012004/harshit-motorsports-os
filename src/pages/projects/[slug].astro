@@ -89,3 +89,63 @@ const { Content } = await project.render();
     line-height: 1.8;
   }
 </style>
+
+---
+// ... existing imports and getStaticPaths ...
+import GripHeatmap from '../../components/GripHeatmap.jsx';
+import LapPredictor from '../../components/LapPredictor.jsx';
+// Generate mock data for heatmap (10x10 grid)
+const mockGripData = Array.from({ length: 10 }, () =>
+  Array.from({ length: 10 }, () => Math.random())
+);
+---
+
+<ProjectLayout title={project.data.title}>
+  <article class="project-page" style={`--project-color: var(--${project.data.color})`}>
+    <!-- Hero, stats, radar chart (existing) -->
+    <!-- ... -->
+
+    <!-- New Widgets Row -->
+    <div class="widgets-row">
+      <div class="widget-card glass-card">
+        <h3>Track Grip Heatmap</h3>
+        <GripHeatmap client:load data={mockGripData} />
+        <p class="caption">Grip levels across a sector (simulated)</p>
+      </div>
+      <div class="widget-card glass-card">
+        <h3>Lap Time Predictor</h3>
+        <LapPredictor client:load />
+      </div>
+    </div>
+
+    <!-- Markdown content (existing) -->
+    <div class="markdown-content">
+      <Content />
+    </div>
+  </article>
+</ProjectLayout>
+
+<style>
+  .widgets-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+  .widget-card {
+    padding: 1.5rem;
+  }
+  .caption {
+    text-align: center;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-top: 1rem;
+  }
+  @media (max-width: 768px) {
+    .widgets-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<GripHeatmap client:load data={mockGripData} color={project.data.color} />

@@ -1,0 +1,9 @@
+---
+// after the radar chart
+import GripHeatmap from '../../components/GripHeatmap.jsx';
+import LapPredictor from '../../components/LapPredictor.jsx';
+---
+<div class="widget-row">
+  <GripHeatmap client:load data={mockGripData} />
+  <LapPredictor client:load />
+</div>

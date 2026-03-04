@@ -98,3 +98,65 @@ import '../styles/portfolio.css';  // Your custom styles
   --glass-bg: rgba(255,255,255,0.06);
   --glass-border: rgba(0,164,239,0.2);
 }
+
+---
+import RPMGauge from '../components/RPMGauge.jsx';
+import Speedometer from '../components/Speedometer.jsx';
+---
+<div class="widget-grid">
+  <RPMGauge client:load rpm={4200} />
+  <Speedometer client:load speed={180} />
+</div>
+
+---
+// Import layout and components
+import Layout from '../layouts/Layout.astro';
+import RPMGauge from '../components/RPMGauge.jsx';
+import Speedometer from '../components/Speedometer.jsx';
+import LapCounter from '../components/LapCounter.jsx';
+// You could also import a static data file for initial values
+const initialRpm = 4200;
+const initialSpeed = 180;
+const initialLaps = 42;
+const bestLap = '1:32.4';
+---
+
+<Layout title="Home | Motorsports OS">
+  <main class="dashboard">
+    <!-- Existing Bento grid (stats, featured, etc.) -->
+    <section class="bento-grid">
+      <!-- ... your existing tiles ... -->
+    </section>
+
+    <!-- New Live Widgets Section -->
+    <section class="widgets-panel glass-card">
+      <h2>Live Telemetry (Simulated)</h2>
+      <div class="widget-grid">
+        <RPMGauge client:load rpm={initialRpm} />
+        <Speedometer client:load speed={initialSpeed} />
+        <LapCounter client:load initialLaps={initialLaps} bestLap={bestLap} />
+        <!-- You can add a fourth widget, e.g., fuel gauge -->
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .widgets-panel {
+    margin-top: 2rem;
+    padding: 2rem;
+  }
+  .widget-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    margin-top: 1.5rem;
+  }
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 28px;
+  }
+</style>
