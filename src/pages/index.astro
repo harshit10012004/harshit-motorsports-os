@@ -1,73 +1,90 @@
 ---
-import { ClientOnly } from 'astro/components';
 ---
-
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <link rel="stylesheet" href="/src/styles/global.css" />
   <meta name="viewport" content="width=device-width" />
-  <title>Motorsports OS - Week 1 Complete</title>
+  <title>Harshit Sharma | Motorsports OS</title>
 </head>
-
-<body class="bg-slate-900 text-white p-8 font-sans">
-  <header class="mb-12 p-6 bg-black/50 rounded-lg">
-    <div class="max-w-4xl mx-auto flex flex-col lg:flex-row gap-4 lg:gap-8 items-center lg:items-center">
-      <h1 class="text-4xl font-bold bg-gradient-to-r from-teal-400 to-blue-500 text-transparent bg-clip-text">
-        Motorsports OS
-      </h1>
-      <nav class="flex gap-6 text-slate-400">
-        <a href="/" class="hover:text-teal-400 font-medium">Home</a>
-        <a href="/projects" class="hover:text-teal-400 font-medium">Projects</a>
-        <a href="/about" class="hover:text-teal-400 font-medium">About</a>
-      </nav>
+<body class="bg-slate-900 text-white min-h-screen p-8">
+  <div class="max-w-6xl mx-auto">
+    <h1 class="text-6xl font-bold bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent mb-8">
+      Motorsports OS ✅
+    </h1>
+    <p class="text-2xl text-slate-300 mb-12">Week 1 Complete! Tailwind working.</p>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="bg-slate-800/50 backdrop-blur p-8 rounded-2xl border border-slate-700 hover:border-teal-500 transition-all">
+        <h3 class="text-xl font-bold mb-4">Portfolio Migration Ready</h3>
+        <p>Copy Harshit-Sharma CSS next</p>
+      </div>
+      <div class="bg-slate-800/50 backdrop-blur p-8 rounded-2xl border border-slate-700 hover:border-teal-500 transition-all">
+        <h3 class="text-xl font-bold mb-4">Obsidian Pipeline</h3>
+        <p>Week 2: Content sync ready</p>
+      </div>
+      <div class="bg-slate-800/50 backdrop-blur p-8 rounded-2xl border border-slate-700 hover:border-teal-500 transition-all">
+        <h3 class="text-xl font-bold mb-4">Wheel of Life</h3>
+        <p>RPG radar chart incoming</p>
+      </div>
     </div>
-  </header>
+  </div>
+</body>
+</html>
+---
+import '../styles/global.css';
+import '../styles/portfolio.css';  // Your custom styles
+---
 
-  <main class="max-w-4xl mx-auto">
-    <section class="mb-20">
-      <h1 class="text-6xl font-black mb-8 bg-gradient-to-r from-teal-400 to-blue-400 text-transparent bg-clip-text">
-        Harshit Sharma
-      </h1>
-      <h2 class="text-3xl font-bold text-slate-200 mb-6">F1 Data Engineer</h2>
-      <p class="text-xl text-slate-400 mb-8 max-w-2xl">
-        Week 1 complete: Live F1 dashboard with Recharts telemetry.
-      </p>
-      <div class="bg-black/50 p-8 rounded-xl border border-gray-700 mb-20">
-        <h3 class="text-2xl font-bold mb-4 text-teal-400">Telemetry Loading...</h3>
-        <p class="text-slate-400">ClientOnly + Recharts component ready</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harshit Sharma · motorsport engineer</title>
+  
+  <!-- Font Awesome + Google Fonts (CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="dashboard">
+    <!-- LEFT RAIL (Your exact design) -->
+    <aside class="left-rail">
+      <a href="index.html">
+        <!-- Replace with your actual logo -->
+        <img src="Harshit-Sharma.png" alt="Harshit Sharma logo" class="nav-logo">
+      </a>
+      <div class="nav-icons">
+        <a href="index.html"><i class="fas fa-home"></i></a>
+        <a href="#"><i class="fas fa-project-diagram"></i></a>
+        <a href="about.html"><i class="fas fa-user"></i></a>
+        <a href="#contact"><i class="fas fa-envelope"></i></a>
       </div>
-    </section>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    </aside>
 
-    <section>
-      <h2 class="text-4xl font-black mb-12 text-center text-white">Projects Grid</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-black/50 p-8 rounded-xl border border-gray-700 hover:border-teal-500 hover:bg-teal-500/5 transition-all">
-          <h3 class="font-bold text-xl mb-3">RB19 Optimizer</h3>
-          <p class="text-teal-400 mb-4">ML Lap Time Prediction</p>
-          <span class="text-sm text-slate-500">0.3s faster laps</span>
+    <!-- MAIN CONTENT AREA (Add your hero/projects here) -->
+    <main class="main-content">
+      <section class="hero">
+        <h1>Harshit Sharma</h1>
+        <h2>Motorsport Data Engineer</h2>
+        <p>Building ML models that win races. RB19 optimization.</p>
+      </section>
+      
+      <!-- Your existing Bento grid goes here -->
+      <section class="projects-grid">
+        <div class="project-card">
+          <h3>RB19 Lap Optimizer</h3>
+          <p>0.3s lap time gains</p>
         </div>
-        <div class="bg-black/50 p-8 rounded-xl border border-gray-700 hover:border-teal-500 hover:bg-teal-500/5 transition-all">
-          <h3 class="font-bold text-xl mb-3">Wheel of Life</h3>
-          <p class="text-teal-400 mb-4">Expertise Radar Chart</p>
-        </div>
-        <div class="bg-black/50 p-8 rounded-xl border border-gray-700 hover:border-teal-500 hover:bg-teal-500/5 transition-all">
-          <h3 class="font-bold text-xl mb-3">Live Telemetry</h3>
-          <p class="text-teal-400 mb-4">Real-time Data</p>
-        </div>
-        <div class="bg-black/50 p-8 rounded-xl border border-gray-700 hover:border-teal-500 hover:bg-teal-500/5 transition-all">
-          <h3 class="font-bold text-xl mb-3">F2004 Aero</h3>
-          <p class="text-teal-400 mb-4">3D Analysis</p>
-        </div>
-        <div class="bg-black/50 p-8 rounded-xl border border-gray-700 hover:border-teal-500 hover:bg-teal-500/5 transition-all">
-          <h3 class="font-bold text-xl mb-3">Pit Stop Opti</h3>
-          <p class="text-teal-400 mb-4">Genetic Algorithm</p>
-        </div>
-        <div class="bg-black/50 p-8 rounded-xl border border-gray-700 hover:border-teal-500 hover:bg-teal-500/5 transition-all">
-          <h3 class="font-bold text-xl mb-3">Downforce ML</h3>
-          <p class="text-teal-400 mb-4">Neural Network</p>
-        </div>
-      </div>
-    </section>
-  </main>
+        <!-- Add more cards -->
+      </section>
+    </main>
+  </div>
 </body>
 </html>
